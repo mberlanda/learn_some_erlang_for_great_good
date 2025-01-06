@@ -44,3 +44,18 @@ asdf global erlang 27.2
 ```
 
 * **vs code plugin**: https://marketplace.visualstudio.com/items?itemName=pgourlain.erlang
+
+### Data Types
+
+```
+➜  learn_some_erlang_for_great_good git:(main) ✗ mkdir ebin
+➜  learn_some_erlang_for_great_good git:(main) ✗ erlc -o ebin src/data_types.erl
+➜  learn_some_erlang_for_great_good git:(main) ✗ erlc -o ebin test/data_types_test.erl
+➜  learn_some_erlang_for_great_good git:(main) ✗ erl -pa ebin
+Erlang/OTP 27 [erts-15.2] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit]
+
+Eshell V15.2 (press Ctrl+G to abort, type help(). for help)
+1> eunit:test(data_types_test).
+  All 8 tests passed.
+ok
+```
