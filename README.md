@@ -59,3 +59,45 @@ Eshell V15.2 (press Ctrl+G to abort, type help(). for help)
   All 8 tests passed.
 ok
 ```
+
+### Modules
+
+Compile
+
+```
+➜  learn_some_erlang_for_great_good git:(main) ✗ erl
+Erlang/OTP 27 [erts-15.2] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit]
+
+Eshell V15.2 (press Ctrl+G to abort, type help(). for help)
+1> cd("./src").
+.../learn_some_erlang_for_great_good/src
+ok
+2> c(useless).
+{ok,useless}
+3> useless:add(5,3).
+8
+4> useless:hello().
+Hello, world!
+ok
+5> useless:greet_and_add_two(4).
+Hello, world!
+6
+```
+
+Add compiler debug_info
+```
+6> compile:file(useless, [debug_info, export_all]).
+{ok,useless}
+7> c(useless, [debug_info, export_all]).
+{ok,useless}
+```
+
+Module info
+
+```
+13> c(useless).
+{ok,useless}
+14> useless:module_info(attributes).
+[{vsn,[196039944454595751978011564439718590907]},
+ {author,"An Erlang Champ"}]
+ ```
