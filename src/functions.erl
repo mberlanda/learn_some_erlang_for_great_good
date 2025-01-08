@@ -3,7 +3,8 @@
     [
         greet/2, head/1, second/1, same/2,
         old_enough/1, right_age/1, wrong_age/1,
-        compare_with_true/2, compare_with_match/2
+        compare_with_true/2, compare_with_match/2,
+        insert/2, beach/1
     ]).
 
 % https://www.erlang.org/doc/system/typespec.html
@@ -51,4 +52,27 @@ compare_with_match(X, Y) ->
         X > Y -> a();
         X < Y -> b();
         X == Y -> c()
+    end.
+
+insert(X,[]) ->
+    [X];
+insert(X,Set) ->
+    case lists:member(X,Set) of
+        true  -> Set;
+        false -> [X|Set]
+    end.
+
+% case {A,B} of
+%     Pattern Guards -> ...
+% end.
+beach(Temperature) ->
+    case Temperature of
+        {celsius, N} when N >= 20, N =< 45 ->
+            'favorable';
+        {kelvin, N} when N >= 293, N =< 318 ->
+            'scientifically favorable';
+        {fahrenheit, N} when N >= 68, N =< 113 ->
+            'favorable in the US';
+        _ ->
+            'avoid beach'
     end.

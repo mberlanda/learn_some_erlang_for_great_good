@@ -80,3 +80,20 @@ compare_equivalence_test() ->
         {"compare_equivalence_b", ?_assertEqual(functions:compare_with_true(1, 2), functions:compare_with_match(1, 2))},
         {"compare_equivalence_c", ?_assertEqual(functions:compare_with_true(1, 1), functions:compare_with_match(1, 1))}
     ].
+
+% Test for insert function
+insert_test() ->
+    [
+        {"insert_new_element", ?_assertEqual([1], functions:insert(1, []))},
+        {"insert_existing_element", ?_assertEqual([1], functions:insert(1, [1]))},
+        {"insert_multiple_elements", ?_assertEqual([2, 1], functions:insert(2, [1]))}
+    ].
+
+% Test for beach function
+beach_test() ->
+    [
+        {"beach_favorable_celsius", ?_assertEqual('favorable', functions:beach({celsius, 25}))},
+        {"beach_scientifically_favorable_kelvin", ?_assertEqual('scientifically favorable', functions:beach({kelvin, 300}))},
+        {"beach_favorable_fahrenheit", ?_assertEqual('favorable in the US', functions:beach({fahrenheit, 75}))},
+        {"beach_avoid", ?_assertEqual('avoid beach', functions:beach({celsius, 10}))}
+    ].
