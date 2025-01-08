@@ -60,6 +60,8 @@ Eshell V15.2 (press Ctrl+G to abort, type help(). for help)
 ok
 ```
 
+These commands have been moved to Makefile and being executed by github actions.
+
 ### Modules
 
 Compile
@@ -104,4 +106,5 @@ Module info
 
 ### Syntax in Functions
 
-https://www.erlang.org/doc/system/typespec.html
+* https://www.erlang.org/doc/system/typespec.html
+* https://learnyousomeerlang.com/syntax-in-functions
