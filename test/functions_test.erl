@@ -56,3 +56,27 @@ wrong_age_test() ->
         {"wrong_age_false", ?_assertEqual(false, functions:wrong_age(16))},
         {"wrong_age_undefined", ?_assertError(badarg, functions:wrong_age(undefined))}
     ].
+
+% Test for compare_with_true function
+compare_with_true_test() ->
+    [
+        {"compare_with_true_a", ?_assertEqual("a", functions:compare_with_true(2, 1))},
+        {"compare_with_true_b", ?_assertEqual("b", functions:compare_with_true(1, 2))},
+        {"compare_with_true_c", ?_assertEqual("c", functions:compare_with_true(1, 1))}
+    ].
+
+% Test for compare_with_match function
+compare_with_match_test() ->
+    [
+        {"compare_with_match_a", ?_assertEqual("a", functions:compare_with_match(2, 1))},
+        {"compare_with_match_b", ?_assertEqual("b", functions:compare_with_match(1, 2))},
+        {"compare_with_match_c", ?_assertEqual("c", functions:compare_with_match(1, 1))}
+    ].
+
+% Test to show equivalence of compare_with_true and compare_with_match
+compare_equivalence_test() ->
+    [
+        {"compare_equivalence_a", ?_assertEqual(functions:compare_with_true(2, 1), functions:compare_with_match(2, 1))},
+        {"compare_equivalence_b", ?_assertEqual(functions:compare_with_true(1, 2), functions:compare_with_match(1, 2))},
+        {"compare_equivalence_c", ?_assertEqual(functions:compare_with_true(1, 1), functions:compare_with_match(1, 1))}
+    ].

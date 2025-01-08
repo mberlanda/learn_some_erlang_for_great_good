@@ -2,7 +2,8 @@
 -export(
     [
         greet/2, head/1, second/1, same/2,
-        old_enough/1, right_age/1, wrong_age/1
+        old_enough/1, right_age/1, wrong_age/1,
+        compare_with_true/2, compare_with_match/2
     ]).
 
 % https://www.erlang.org/doc/system/typespec.html
@@ -30,3 +31,24 @@ right_age(_) -> false.
 % , is used as a guard separator to define || in Erlang
 wrong_age(Age) when Age < 16, Age >= 104 -> true;
 wrong_age(_) -> false.
+
+% Sample functions a, b, and c
+a() -> "a".
+b() -> "b".
+c() -> "c".
+
+% Function showcasing if true pattern matching used as else
+compare_with_true(X, Y) ->
+    if
+        X > Y -> a();
+        X < Y -> b();
+        true  -> c()
+    end.
+
+% Function showcasing if with explicit exhaustive pattern matching
+compare_with_match(X, Y) ->
+    if
+        X > Y -> a();
+        X < Y -> b();
+        X == Y -> c()
+    end.
