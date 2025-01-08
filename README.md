@@ -100,4 +100,8 @@ Module info
 14> useless:module_info(attributes).
 [{vsn,[196039944454595751978011564439718590907]},
  {author,"An Erlang Champ"}]
- ```
+```
+
+### Syntax in Functions
+
+https://www.erlang.org/doc/system/typespec.html
